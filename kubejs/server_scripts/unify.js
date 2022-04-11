@@ -384,6 +384,14 @@ onEvent('recipes', e => {
     e.remove({id: `allthemodium:main/${metal}_block`});
   })
 
+  // temporary until mek compat is fixed
+  mekanismMetals.concat(['copper']).forEach(metal => {
+    removeRecipeByID(e, [
+      `alltheores:mek_processing/${metal}/dirty_dust/from_clump`,
+      `alltheores:mek_processing/${metal}/dust/from_dirty_dust`,
+    ])
+  })
+
   removeRecipeByID(e, [
     'immersiveengineering:crusher/nether_gold',
     'immersiveengineering:crafting/nugget_steel_to_ingot_steel',
